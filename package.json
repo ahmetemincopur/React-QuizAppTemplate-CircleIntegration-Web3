@@ -8,9 +8,13 @@
   },
   "homepage": "https://safdarjamal.github.io/quiz-app/",
   "dependencies": {
+    "@circle-fin/w3s-pw-web-sdk": "^1.1.1",
+    "@datadog/browser-rum": "^5.23.0",
     "@testing-library/jest-dom": "^5.17.0",
     "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
+    "axios": "^1.7.2",
+    "crypto-browserify": "^3.12.0",
     "he": "^1.2.0",
     "prop-types": "^15.8.1",
     "react": "^18.2.0",
@@ -18,12 +22,14 @@
     "react-scripts": "5.0.1",
     "semantic-ui-css": "^2.5.0",
     "semantic-ui-react": "^2.1.4",
-    "sweetalert2": "^11.7.31"
+    "stream-browserify": "^3.0.0",
+    "sweetalert2": "^11.7.31",
+    "util": "^0.12.5"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
+    "start": "react-app-rewired start",
+    "build": "react-app-rewired build",
+    "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "predeploy": "npm run build",
     "deploy": "gh-pages -d build",
@@ -71,9 +77,13 @@
     "@storybook/react-webpack5": "^7.4.5",
     "@storybook/testing-library": "^0.2.2",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "buffer": "^6.0.3",
     "eslint-plugin-storybook": "^0.6.14",
     "gh-pages": "^6.0.0",
+    "process": "^0.11.10",
+    "react-app-rewired": "^2.2.1",
     "storybook": "^7.4.5",
+    "vm-browserify": "^1.1.2",
     "webpack": "^5.88.2"
   }
 }

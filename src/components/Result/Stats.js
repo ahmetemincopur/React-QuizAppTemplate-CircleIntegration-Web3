@@ -1,9 +1,9 @@
-import React from 'react';
-import PropTypes from 'prop-types';
-import { Segment, Header, Button } from 'semantic-ui-react';
-
-import ShareButton from '../ShareButton';
-import { calculateScore, calculateGrade, timeConverter } from '../../utils';
+import React from "react";
+import PropTypes from "prop-types";
+import { Segment, Header, Button } from "semantic-ui-react";
+import ShareButton from "../ShareButton";
+import { calculateScore, calculateGrade, timeConverter } from "../../utils";
+import WalletButton from "../WalletButton";
 
 const Stats = ({
   totalQuestions,
@@ -13,13 +13,17 @@ const Stats = ({
   resetQuiz,
 }) => {
   const score = calculateScore(totalQuestions, correctAnswers);
-  const { grade, remarks } = calculateGrade(score);
+  const { grade, remarks, points } = calculateGrade(score);
   const { hours, minutes, seconds } = timeConverter(timeTaken);
 
   return (
     <Segment>
+      <WalletButton points={points} />
       <Header as="h1" textAlign="center" block>
         {remarks}
+      </Header>
+      <Header as="h1" textAlign="center" block>
+        {"You have earned  " + points + "   points"}
       </Header>
       <Header as="h2" textAlign="center" block>
         Grade: {grade}
@@ -37,7 +41,7 @@ const Stats = ({
         Passing Score: 60%
       </Header>
       <Header as="h3" textAlign="center" block>
-        Time Taken:{' '}
+        Time Taken:{" "}
         {`${Number(hours)}h ${Number(minutes)}m ${Number(seconds)}s`}
       </Header>
       <div style={{ marginTop: 35 }}>
