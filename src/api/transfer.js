@@ -1,7 +1,12 @@
 import axios from "axios";
 import { v4 as uuidv4 } from "uuid";
 
-export const initiateTransfer = async (userToken, walletId, amount) => {
+export const initiateTransfer = async (
+  userToken,
+  walletId,
+  amount,
+  walletAddress
+) => {
   const destinationAddress = process.env.REACT_APP_USDC_DESTINATION_ADDRESS;
   console.log(destinationAddress);
   const idempotencyKey = uuidv4();
@@ -10,7 +15,7 @@ export const initiateTransfer = async (userToken, walletId, amount) => {
   const transferData = {
     idempotencyKey: idempotencyKey,
     amounts: [`${amount}`],
-    destinationAddress: `${process.env.REACT_APP_USDC_DESTINATION_ADDRESS}`,
+    destinationAddress: walletAddress,
     feeLevel: "HIGH",
     walletId: walletId,
     tokenId: tokenId,

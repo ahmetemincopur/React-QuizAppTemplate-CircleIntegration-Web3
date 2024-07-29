@@ -69,8 +69,10 @@ const WalletButton = ({ points }) => {
       console.log("Wallet Data:", walletData.data.data.wallets[0].id);
       const walletId = walletData.data.data.wallets[0].id;
       const walletAddress = walletData.data.data.wallets[0].address;
-      console.log("Wallet Address:", walletAddress);
+      console.log("Wallet Address:" + walletAddress);
+      console.log("Wallet İDDDDDDDDDDDD:" + walletId);
       localStorage.setItem("WALLET_ID", walletId);
+      localStorage.setItem("WALLET_ADDRESS", walletAddress);
 
       // Fetch Balances
       const balancesEarly = await fetchBalances(walletId);
@@ -81,7 +83,8 @@ const WalletButton = ({ points }) => {
         const transferResult = await initiateTransfer(
           userToken,
           walletId,
-          points
+          points,
+          "0xc5803273520c14606fd4c6d71d20d25ea047b973"
         );
         console.log("Transfer Result:", transferResult.data.challengeId);
         localStorage.setItem(
@@ -103,14 +106,13 @@ const WalletButton = ({ points }) => {
           encryptionKeyTransactions,
           transferResult.data.challengeId
         );
-
-        // Fetch Balances
-        const balancesLate = await fetchBalances(walletId);
-        console.log("Balances:", balancesLate.data.tokenBalances);
-        console.log("Balances:", balancesLate.data.tokenBalances[1]?.amount);
       } else {
         console.log("You have to pass 0 for transaction");
       }
+      // Fetch Balances
+      const balancesLate = await fetchBalances(walletId);
+      console.log("Balances:", balancesLate.data.tokenBalances);
+      console.log("Balances:", balancesLate.data.tokenBalances[1]?.amount);
     } catch (error) {
       console.error("Error in wallet creation process:", error);
     } finally {
