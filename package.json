@@ -6,7 +6,6 @@
     "name": "Safdar Jamal",
     "url": "https://safdarjamal.github.io"
   },
-  "homepage": "https://react-quiz-app-template-circle-integration-web3.vercel.app",
   "dependencies": {
     "@circle-fin/w3s-pw-web-sdk": "^1.1.1",
     "@datadog/browser-rum": "^5.23.0",
